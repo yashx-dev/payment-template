@@ -3,11 +3,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import paymentRoutes from "./routes/paymentsRoutes";
-import { errorHandler } from "./middleware/errorMiddleware";
+import paymentRoutes from "./routes/paymentsRoutes.js";
+import { errorHandler } from "./middleware/errorMiddleware.js";
 
-dotenv.config();
-
+dotenv.config({quiet: true});
 const app: Express = express();
 const PORT = process.env.PORT || 5000;
 
@@ -33,7 +32,7 @@ app.use(
 
 app.use("/api", paymentRoutes);
 
-app.get("/health", (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response) => {
   res.status(200).json({
     status: "ok",
     timestamp: new Date().toISOString(),
@@ -53,7 +52,7 @@ const startServer = async () => {
     console.log("✅ MongoDB connected successfully");
 
     app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
     });
   } catch (error: unknown) {
     console.error("❌ MongoDB connection failed:", error);

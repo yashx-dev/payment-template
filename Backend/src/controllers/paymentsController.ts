@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-import { stripe } from "../config/stripe.config";
+import { stripe } from "../config/stripe.config.js";
 
 import {
   createCheckoutSession as createCheckoutSessionService,
   handleWebhookEvent,
   getPaymentStatus as getPaymentStatusService,
-} from "../services/paymentService";
+} from "../services/paymentService.js";
 
 interface PaymentParams {
   sessionId: string;

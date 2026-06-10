@@ -12,7 +12,7 @@ export const createCheckoutSession = async (email: string, name: string) => {
 
 export const getPaymentStatus = async (sessionId: string) => {
   const response = await axios.get(
-    `${API_URL}/payment-status?sessionId=${sessionId}`,
+    `${API_URL}/payment-status/${sessionId}`,
   );
   return response.data;
 };

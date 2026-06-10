@@ -4,12 +4,12 @@ import {
   createCheckoutSession,
   getPaymentStatus,
   handleWebhook,
-} from "../controllers/paymentsController"
+} from "../controllers/paymentsController.js";
 
 import {
   validateCheckoutSession,
   handleValidationErrors,
-} from "../middleware/validationMiddleware";
+} from "../middleware/validationMiddleware.js";
 
 const router = express.Router();
 

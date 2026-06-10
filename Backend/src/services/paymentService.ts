@@ -1,6 +1,6 @@
 import Stripe from "stripe";
-import { stripe, PRODUCT_CONFIG } from "../config/stripe.config";
-import { Payment } from "../models/paymentModels";
+import { stripe, PRODUCT_CONFIG } from "../config/stripe.config.js";
+import { Payment } from "../models/paymentModels.js";
 
 export const createCheckoutSession = async (
   customerEmail: string,
